@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reviews - Gestión Y PH</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body class="page-background">
+    <!-- Header -->
+    <header>
+      <nav>
+        <div class="logo"><a href="index.html">Gestión Y PH</a></div>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li class="active">Reviews</li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="page-content">
+      <section class="reviews">
+        <h2>Opiniones de Nuestros Clientes</h2>
+
+        <!-- Existing reviews grid -->
+        <div class="reviews-grid">
+          <!-- Existing review cards remain unchanged -->
+        </div>
+
+        <!-- New Review Submission Form -->
+        <div class="submit-review-section">
+          <h3 class="section-subtitle">Comparte tu experiencia</h3>
+
+          <form class="review-form-container">
+            <div class="form-group">
+              <label for="nombre">Nombre y Apellido</label>
+              <input type="text" id="nombre" name="nombre" required />
+            </div>
+
+            <div class="form-group">
+              <label for="rating">Calificación</label>
+              <div class="rating-select">
+                <i class="far fa-star star-rating" data-rating="1"></i>
+                <i class="far fa-star star-rating" data-rating="2"></i>
+                <i class="far fa-star star-rating" data-rating="3"></i>
+                <i class="far fa-star star-rating" data-rating="4"></i>
+                <i class="far fa-star star-rating" data-rating="5"></i>
+                <input
+                  type="hidden"
+                  id="rating"
+                  name="rating"
+                  value="0"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="comentario">Tu comentario</label>
+              <textarea
+                id="comentario"
+                name="comentario"
+                rows="4"
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Selecciona una imagen de perfil</label>
+              <div class="avatar-selection">
+                <div class="avatar-option">
+                  <input
+                    type="radio"
+                    id="avatar1"
+                    name="avatar"
+                    value="avatar1.jpg"
+                    required
+                  />
+                  <label for="avatar1"
+                    ><img src="img/avatar1.jpg" alt="Avatar 1"
+                  /></label>
+                </div>
+                <div class="avatar-option">
+                  <input
+                    type="radio"
+                    id="avatar2"
+                    name="avatar"
+                    value="avatar2.jpg"
+                  />
+                  <label for="avatar2"
+                    ><img src="img/avatar2.jpg" alt="Avatar 2"
+                  /></label>
+                </div>
+                <div class="avatar-option">
+                  <input
+                    type="radio"
+                    id="avatar3"
+                    name="avatar"
+                    value="avatar3.jpg"
+                  />
+                  <label for="avatar3"
+                    ><img src="img/avatar3.jpg" alt="Avatar 3"
+                  /></label>
+                </div>
+                <div class="avatar-option">
+                  <input
+                    type="radio"
+                    id="avatar4"
+                    name="avatar"
+                    value="avatar4.jpg"
+                  />
+                  <label for="avatar4"
+                    ><img src="img/avatar4.jpg" alt="Avatar 4"
+                  /></label>
+                </div>
+                <div class="avatar-option">
+                  <input
+                    type="radio"
+                    id="avatar5"
+                    name="avatar"
+                    value="avatar5.jpg"
+                  />
+                  <label for="avatar5"
+                    ><img src="img/avatar5.jpg" alt="Avatar 5"
+                  /></label>
+                </div>
+                <div class="avatar-option">
+                  <input
+                    type="radio"
+                    id="avatar6"
+                    name="avatar"
+                    value="avatar6.jpg"
+                  />
+                  <label for="avatar6"
+                    ><img src="img/avatar6.jpg" alt="Avatar 6"
+                  /></label>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="submit-button">Enviar Reseña</button>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Gestión Y PH. Todos los derechos reservados.</p>
+    </footer>
+    <!-- Script mejorado para mostrar reseñas enviadas -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const stars = document.querySelectorAll(".star-rating");
+        const ratingInput = document.getElementById("rating");
+        const reviewForm = document.querySelector(".review-form-container");
+        const reviewsGrid = document.querySelector(".reviews-grid");
+
+        // Manejo de estrellas de calificación
+        stars.forEach((star) => {
+          star.addEventListener("click", function () {
+            const rating = this.getAttribute("data-rating");
+            ratingInput.value = rating;
+
+            // Reset all stars
+            stars.forEach((s) => {
+              s.classList.remove("fas", "active");
+              s.classList.add("far");
+            });
+
+            // Fill stars up to the selected rating
+            for (let i = 0; i < stars.length; i++) {
+              if (i < rating) {
+                stars[i].classList.remove("far");
+                stars[i].classList.add("fas", "active");
+              }
+            }
+          });
+        });
+
+        // Manejo del envío del formulario
+        reviewForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Obtener valores del formulario
+          const nombre = document.getElementById("nombre").value;
+          const rating = parseInt(document.getElementById("rating").value);
+          const comentario = document.getElementById("comentario").value;
+
+          // Obtener avatar seleccionado
+          const avatarSelected = document.querySelector(
+            'input[name="avatar"]:checked'
+          );
+          if (!avatarSelected) {
+            alert("Por favor selecciona una imagen de perfil");
+            return;
+          }
+          const avatarSrc = "img/" + avatarSelected.value;
+
+          // Crear fecha actual
+          const fecha = new Date();
+          const meses = [
+            "Enero",
+            "Febrero",
+            "Marzo",
+            "Abril",
+            "Mayo",
+            "Junio",
+            "Julio",
+            "Agosto",
+            "Septiembre",
+            "Octubre",
+            "Noviembre",
+            "Diciembre",
+          ];
+          const fechaFormateada =
+            meses[fecha.getMonth()] + " " + fecha.getFullYear();
+
+          // Crear HTML para la nueva reseña
+          const newReview = document.createElement("div");
+          newReview.className = "review-card";
+          newReview.innerHTML = `
+            <div class="review-header">
+              <img src="${avatarSrc}" alt="${nombre}">
+              <div class="review-info">
+                <h4>${nombre}</h4>
+                <div class="stars">
+                  ${generateStars(rating)}
+                </div>
+              </div>
+            </div>
+            <p class="review-text">"${comentario}"</p>
+            <p class="review-date">${fechaFormateada}</p>
+          `;
+
+          // Añadir la nueva reseña al principio del grid
+          reviewsGrid.insertBefore(newReview, reviewsGrid.firstChild);
+
+          // Resetear el formulario
+          reviewForm.reset();
+          stars.forEach((s) => {
+            s.classList.remove("fas", "active");
+            s.classList.add("far");
+          });
+          ratingInput.value = 0;
+
+          // Mostrar mensaje de confirmación
+          alert("¡Gracias por tu reseña!");
+
+          // Hacer scroll hasta la nueva reseña
+          newReview.scrollIntoView({ behavior: "smooth" });
+        });
+
+        // Función para generar HTML de estrellas
+        function generateStars(rating) {
+          let starsHTML = "";
+          for (let i = 1; i <= 5; i++) {
+            if (i <= rating) {
+              starsHTML += '<i class="fas fa-star"></i>';
+            } else if (i - 0.5 === rating) {
+              starsHTML += '<i class="fas fa-star-half-alt"></i>';
+            } else {
+              starsHTML += '<i class="far fa-star"></i>';
+            }
+          }
+          return starsHTML;
+        }
+      });
+    </script>
+  </body>
+</html>

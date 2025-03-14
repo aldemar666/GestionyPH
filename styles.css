@@ -1,0 +1,726 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  padding-top: 70px; /* Add padding to account for the fixed header */
+}
+
+.page-background {
+  padding-top: 70px; /* Also add padding to the page-background class */
+}
+
+/* For the home page, we don't need the padding since it has a full-height hero section */
+body:not(.page-background) {
+  padding-top: 0;
+}
+
+/* Adjust the header z-index to ensure it stays on top */
+header {
+  background-color: #90ee90;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000; /* Ensure the header stays on top of other elements */
+}
+
+nav ul li.active {
+  font-weight: bold;
+  color: #4caf50;
+  padding: 0.5rem 1rem;
+}
+
+/* Header */
+header {
+  background-color: #90ee90; /* Light green color */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+nav ul li a {
+  color: #333;
+}
+
+.logo {
+  color: #333;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  padding: 0.5rem 1rem;
+}
+
+nav ul li.active {
+  font-weight: bold;
+  color: #4caf50;
+  padding: 0.5rem 1rem;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("hero-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 0 1rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #4caf50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 2rem;
+}
+
+/* Servicios */
+.services h2 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(90deg, #4caf50, #90ee90);
+  padding: 1rem;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.service-card {
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.service-card h3 {
+  color: #4caf50;
+  margin: 1.5rem 0;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #4caf50;
+  padding-bottom: 0.8rem;
+}
+
+.service-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Reviews */
+.reviews h2 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(90deg, #4caf50, #90ee90);
+  padding: 1rem;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.review-card {
+  background: linear-gradient(145deg, #ffffff, #f5f5f5);
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 2rem;
+}
+
+.review-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.review-header img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1.5rem;
+  border: 3px solid #4caf50;
+}
+
+.review-info h4 {
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.stars {
+  color: #ffd700;
+  font-size: 1.2rem;
+}
+
+.review-text {
+  background: white;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 10px;
+  color: #444;
+  font-style: italic;
+  line-height: 1.8;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.review-text:before {
+  content: '"';
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  font-size: 3rem;
+  color: #4caf50;
+  opacity: 0.2;
+}
+
+.review-date {
+  color: #666;
+  text-align: right;
+  background: white;
+  padding: 0.8rem;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+/* Logo link styles */
+.logo a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.logo a:hover {
+  color: #4caf50;
+}
+
+/* Contacto */
+.contact h2 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(90deg, #4caf50, #90ee90);
+  padding: 1rem;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.contact-form-container {
+  background: linear-gradient(145deg, #ffffff, #f5f5f5);
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  padding: 3rem;
+}
+
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 1.2rem;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+  outline: none;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.8rem;
+  color: #333;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.submit-button {
+  background: linear-gradient(90deg, #4caf50, #45a049);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 1.2rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-top: 1rem;
+}
+
+.submit-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Enlaces rápidos en la página de inicio */
+.quick-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+  z-index: 2;
+  position: relative;
+}
+
+.quick-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  padding: 1.5rem;
+  border-radius: 15px;
+  color: white;
+  text-decoration: none;
+  width: 150px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Efecto hover para botones */
+.cta-button:hover {
+  background-color: #45a049;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Efecto hover para tarjetas de servicio */
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+/* Efecto hover para tarjetas de review */
+.review-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+/* Efecto hover para enlaces rápidos */
+.quick-link:hover {
+  transform: translateY(-10px);
+  background: rgba(76, 175, 80, 0.3);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Efecto hover para iconos sociales */
+.social-icon:hover {
+  transform: translateY(-10px);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Efecto hover para enlaces de navegación */
+nav ul li a:hover {
+  color: #4caf50;
+  transition: color 0.3s ease;
+}
+
+/* Redes Sociales con colores originales en hover */
+.social-media {
+  padding: 3rem 5%;
+  text-align: center;
+  background-color: white;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.social-icon {
+  font-size: 2.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: #333;
+}
+
+.social-icon:hover {
+  transform: translateY(-10px);
+}
+
+/* Colores originales para cada red social en hover */
+.social-icon .fa-facebook:hover,
+.social-icon.fa-facebook:hover {
+  color: #1877f2; /* Azul de Facebook */
+}
+
+.social-icon .fa-instagram:hover,
+.social-icon.fa-instagram:hover {
+  color: #e4405f; /* Rosa de Instagram */
+}
+
+.social-icon .fa-whatsapp:hover,
+.social-icon.fa-whatsapp:hover {
+  color: #25d366; /* Verde de WhatsApp */
+}
+
+.social-icon .fa-linkedin:hover,
+.social-icon.fa-linkedin:hover {
+  color: #0077b5; /* Azul de LinkedIn */
+}
+
+.social-icon .fa-tiktok:hover,
+.social-icon.fa-tiktok:hover {
+  color: #000000; /* Negro de TikTok */
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(90deg, #333, #222);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+}
+
+footer p {
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+/* Sobre Nosotros */
+.about {
+  padding: 5rem 5%;
+  background-color: #f9f9f9;
+}
+
+.about-container {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+/* Enhanced About Us Styles */
+.section-title {
+  font-size: 2.5rem;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(90deg, #4caf50, #90ee90);
+  padding: 1rem;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.about-intro {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 1.2rem;
+  color: #333;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1.5rem;
+  border-radius: 10px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.highlight {
+  color: #4caf50;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.about-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.feature-card {
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  color: #4caf50;
+  margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.section-subtitle {
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+  margin: 3rem 0 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.8rem;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.team-member {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-10px);
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  border: 5px solid #4caf50;
+}
+
+.team-member h4 {
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.member-role {
+  color: #4caf50;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.team-section {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+/* Make existing about cards more attractive */
+.about-card {
+  flex: 1;
+  max-width: 500px;
+  padding: 2.5rem;
+  background: linear-gradient(145deg, #ffffff, #f5f5f5);
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-10px);
+}
+
+.about-card h3 {
+  color: #4caf50;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #4caf50;
+  padding-bottom: 0.8rem;
+}
+
+.about-card p {
+  line-height: 1.8;
+  color: #444;
+  text-align: justify;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .about-features,
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+/* Review Submission Form */
+.submit-review-section {
+  margin-top: 4rem;
+  background: linear-gradient(145deg, #ffffff, #f5f5f5);
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.review-form-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.rating-select {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 2rem;
+  color: #ccc;
+}
+
+.star-rating {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.star-rating:hover,
+.star-rating.active {
+  color: #ffd700;
+}
+
+.avatar-selection {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.avatar-option {
+  text-align: center;
+}
+
+.avatar-option input[type="radio"] {
+  display: none;
+}
+
+.avatar-option label {
+  cursor: pointer;
+  display: block;
+  padding: 0.5rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.avatar-option img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.avatar-option input[type="radio"]:checked + label {
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.avatar-option input[type="radio"]:checked + label img {
+  border-color: #4caf50;
+  transform: scale(1.1);
+}
