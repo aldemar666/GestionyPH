@@ -1,4 +1,21 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const title =
+    " Soluciones integrales para la administración y mantenimiento de propiedades horizontales"; // Cambia por tu texto
+  const titleElement = document.getElementById("hero-title");
+  let index = 0;
+
+  function typeEffect() {
+    if (index < title.length) {
+      titleElement.innerHTML += title[index];
+      index++;
+      setTimeout(typeEffect, 50); // Velocidad de escritura (en ms)
+    }
+  }
+
+  setTimeout(typeEffect, 500); // Inicia después de 0.5s
+});
+
+document.addEventListener("DOMContentLoaded", function () {
   // Código para el menú responsive
   const menuToggle = document.querySelector(".menu-toggle");
   const navMenu = document.querySelector(".nav-menu");
