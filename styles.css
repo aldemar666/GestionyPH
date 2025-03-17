@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: "Arial", sans-serif;
+  font-family: "Poppins", sans-serif;
   line-height: 1.6;
   padding-top: 70px; /* Add padding to account for the fixed header */
 }
@@ -33,17 +33,6 @@ nav ul li.active {
   font-weight: bold;
   color: #4caf50;
   padding: 0.5rem 1rem;
-}
-
-/* Header */
-/* Eliminar código duplicado en el header */
-header {
-  background-color: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
 }
 
 /* Optimizar el Formulario de Contacto */
@@ -103,16 +92,32 @@ header {
     font-size: 2rem;
   }
 
+  .hero p {
+    font-size: 1.2rem;
+    padding: 0 15px;
+  }
+
   .services-grid,
   .reviews-grid,
   .about-features,
   .team-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .contact-form-container {
-    width: 90%;
-    padding: 1.5rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 600px;
+    margin: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .contact-form-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   }
 
   .section-title {
@@ -180,13 +185,13 @@ header {
   border-radius: 8px;
   font-weight: bold;
   letter-spacing: 1px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .cta-button:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(90deg, #45a049, #3d8b3d);
+  background: linear-gradient(90deg, #388e3c, #2e7d32);
 }
 
 nav ul li a {
@@ -230,17 +235,15 @@ nav ul li.active {
 /* Hero Section */
 .hero {
   height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("hero-bg.jpg");
-  background-size: cover;
-  background-position: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("hero-bg.jpg") no-repeat center center/cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   color: white;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
 }
 
 .hero h1 {
@@ -278,16 +281,16 @@ nav ul li.active {
 }
 
 .service-card {
-  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  background: white;
   padding: 2rem;
   border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .service-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .service-card h3 {
@@ -331,17 +334,16 @@ nav ul li.active {
 }
 
 .review-card {
-  background: linear-gradient(145deg, #ffffff, #f5f5f5);
-  padding: 2.5rem;
+  background: white;
+  padding: 2rem;
   border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin-bottom: 2rem;
 }
 
 .review-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .review-header {
@@ -1107,5 +1109,28 @@ body.dark-mode .form-group select:focus {
 
   .logo {
     flex: 1;
+  }
+}
+.contact,
+.reviews,
+.about {
+  background: linear-gradient(180deg, #f8f9fa, #e8f5e9);
+  padding: 4rem 5%;
+  border-radius: 15px;
+}
+
+/* Animación de Fade-In en la Carga */
+body {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
