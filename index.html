@@ -15,8 +15,12 @@
     <header>
       <nav>
         <div class="logo"><a href="index.html">Gestión & Servicios PH</a></div>
-        <ul>
-          <li class="active">Inicio</li>          <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+        <div class="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-menu">
+          <li class="active">Inicio</li>
+          <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
           <li><a href="servicios.html">Servicios</a></li>
           <li><a href="reviews.html">Reviews</a></li>
           <li><a href="contacto.html">Contacto</a></li>
@@ -54,14 +58,13 @@
     <footer>
       <p>&copy; 2025 Gestión & Servicios PH. Todos los derechos reservados.</p>
     </footer>
-    <section class="social-media">
-        <h2>Síguenos en Redes Sociales</h2>
-        <div class="social-icons">
-          <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
-        </div>
-      </section>
+    
+    <!-- Botón de cambio de tema (día/noche) -->
+    <div class="theme-toggle" id="themeToggle">
+      <i class="fas fa-moon"></i>
+    </div>
+    
+    <!-- Script externo -->
+    <script src="js/main.js"></script>
+  </body>
 </html>

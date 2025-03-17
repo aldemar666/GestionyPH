@@ -15,7 +15,10 @@
     <header>
       <nav>
         <div class="logo"><a href="index.html">Gestión Y PH</a></div>
-        <ul>
+        <div class="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-menu">
           <li><a href="index.html">Inicio</a></li>
           <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
           <li><a href="servicios.html">Servicios</a></li>
@@ -153,126 +156,15 @@
 
     <!-- Footer -->
     <footer>
-      <p>&copy; 2025 Gestión Y PH. Todos los derechos reservados.</p>
+      <p>&copy; 2025 Gestión & Servicios PH. Todos los derechos reservados.</p>
     </footer>
-    <!-- Script mejorado para mostrar reseñas enviadas -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const stars = document.querySelectorAll(".star-rating");
-        const ratingInput = document.getElementById("rating");
-        const reviewForm = document.querySelector(".review-form-container");
-        const reviewsGrid = document.querySelector(".reviews-grid");
-
-        // Manejo de estrellas de calificación
-        stars.forEach((star) => {
-          star.addEventListener("click", function () {
-            const rating = this.getAttribute("data-rating");
-            ratingInput.value = rating;
-
-            // Reset all stars
-            stars.forEach((s) => {
-              s.classList.remove("fas", "active");
-              s.classList.add("far");
-            });
-
-            // Fill stars up to the selected rating
-            for (let i = 0; i < stars.length; i++) {
-              if (i < rating) {
-                stars[i].classList.remove("far");
-                stars[i].classList.add("fas", "active");
-              }
-            }
-          });
-        });
-
-        // Manejo del envío del formulario
-        reviewForm.addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          // Obtener valores del formulario
-          const nombre = document.getElementById("nombre").value;
-          const rating = parseInt(document.getElementById("rating").value);
-          const comentario = document.getElementById("comentario").value;
-
-          // Obtener avatar seleccionado
-          const avatarSelected = document.querySelector(
-            'input[name="avatar"]:checked'
-          );
-          if (!avatarSelected) {
-            alert("Por favor selecciona una imagen de perfil");
-            return;
-          }
-          const avatarSrc = "img/" + avatarSelected.value;
-
-          // Crear fecha actual
-          const fecha = new Date();
-          const meses = [
-            "Enero",
-            "Febrero",
-            "Marzo",
-            "Abril",
-            "Mayo",
-            "Junio",
-            "Julio",
-            "Agosto",
-            "Septiembre",
-            "Octubre",
-            "Noviembre",
-            "Diciembre",
-          ];
-          const fechaFormateada =
-            meses[fecha.getMonth()] + " " + fecha.getFullYear();
-
-          // Crear HTML para la nueva reseña
-          const newReview = document.createElement("div");
-          newReview.className = "review-card";
-          newReview.innerHTML = `
-            <div class="review-header">
-              <img src="${avatarSrc}" alt="${nombre}">
-              <div class="review-info">
-                <h4>${nombre}</h4>
-                <div class="stars">
-                  ${generateStars(rating)}
-                </div>
-              </div>
-            </div>
-            <p class="review-text">"${comentario}"</p>
-            <p class="review-date">${fechaFormateada}</p>
-          `;
-
-          // Añadir la nueva reseña al principio del grid
-          reviewsGrid.insertBefore(newReview, reviewsGrid.firstChild);
-
-          // Resetear el formulario
-          reviewForm.reset();
-          stars.forEach((s) => {
-            s.classList.remove("fas", "active");
-            s.classList.add("far");
-          });
-          ratingInput.value = 0;
-
-          // Mostrar mensaje de confirmación
-          alert("¡Gracias por tu reseña!");
-
-          // Hacer scroll hasta la nueva reseña
-          newReview.scrollIntoView({ behavior: "smooth" });
-        });
-
-        // Función para generar HTML de estrellas
-        function generateStars(rating) {
-          let starsHTML = "";
-          for (let i = 1; i <= 5; i++) {
-            if (i <= rating) {
-              starsHTML += '<i class="fas fa-star"></i>';
-            } else if (i - 0.5 === rating) {
-              starsHTML += '<i class="fas fa-star-half-alt"></i>';
-            } else {
-              starsHTML += '<i class="far fa-star"></i>';
-            }
-          }
-          return starsHTML;
-        }
-      });
-    </script>
+    
+    <!-- Botón de cambio de tema (día/noche) -->
+    <div class="theme-toggle" id="themeToggle">
+      <i class="fas fa-moon"></i>
+    </div>
+    
+    <!-- Script externo -->
+    <script src="js/main.js"></script>
   </body>
 </html>
